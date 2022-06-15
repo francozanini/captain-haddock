@@ -1,0 +1,22 @@
+{
+  "name": "captain-haddock",
+  "version": "1.0.0",
+  "description": "discord bot for memes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/francozanini/captain-haddock.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "franco.zanini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francozanini/captain-haddock/issues"
+  },
+  "homepage": "https://github.com/francozanini/captain-haddock#readme"
+}
