@@ -7,8 +7,8 @@ const cron = require('cron');
 const client = new Client({intents: [Intents.FLAGS.GUILDS]});
 
 const sendMessageWithAttachment = (imageName, message = '') => {
-    const guild = client.guilds.cache.get('270292016372514816');
-    const channel = guild.channels.cache.get('270292016372514816');
+    const guild = client.guilds.cache.get('662843741203333140');
+    const channel = guild.channels.cache.get('662843741203333143');
 
     const attachment = new MessageAttachment(`assets/${imageName}`);
     const embed = new MessageEmbed()
