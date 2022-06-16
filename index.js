@@ -15,25 +15,24 @@ const sendMessageWithAttachment = (imageName, message = '') => {
         .setDescription(message)
 
     channel.send({embeds: [embed], files: [attachment]});
-}
+};
 
-const makeCron = (cronExpression, onTick) => {
+const registerCron = (cronExpression, onTick) => {
     return new cron.CronJob(cronExpression,
         onTick,
         null,
         true,
         'America/Argentina/Buenos_Aires');
-}
+};
 
 client.once('ready', () => {
-    // wednesday
-    makeCron('0 30 8 * * 3', () => sendMessageWithAttachment("wednesday.jpg"));
+    const crons = [
+        {expression: "0 30 8 * * 1", onTick: () => sendMessageWithAttachment("monday-already.jpg", "Chupala Napster")},
+        {expression: "0 30 8 * * 3", onTick: () => sendMessageWithAttachment("wednesday.jpg")},
+        {expression: "0 0 18 * * 5", onTick: () => sendMessageWithAttachment("weeknd.gif")}
+    ];
 
-    //weekend
-    makeCron('0 0 18 * * 5', () => sendMessageWithAttachment("weeknd.gif"));
-
-    //monday
-    makeCron('0 30 8 * * 1', () => sendMessageWithAttachment("monday-already.jpg", "Chupala Napster"));
+    crons.forEach(({expression, onTick}) => registerCron(expression, onTick));
 
 });
 
@@ -45,6 +44,6 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.login(token)
+client.login(token);
 
 // https://discord.com/api/oauth2/authorize?client_id=986745016682684496&permissions=2147665920&scope=bot%20applications.commands
