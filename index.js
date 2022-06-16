@@ -5,13 +5,13 @@ const token = process.env.DISCORD_TOKEN;
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS]});
 
-const sendMessageWithAttachment = (imageName, message = '') => {
+const sendMessageWithAttachment = (resourceName, message = '') => {
     const guild = client.guilds.cache.get('662843741203333140');
     const channel = guild.channels.cache.get('662843741203333143');
 
-    const attachment = new MessageAttachment(`assets/${imageName}`);
+    const attachment = new MessageAttachment(`assets/${resourceName}`);
     const embed = new MessageEmbed()
-        .setImage((`attachment://${imageName}`))
+        .setImage((`attachment://${resourceName}`))
         .setDescription(message)
 
     channel.send({embeds: [embed], files: [attachment]});
