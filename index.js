@@ -1,8 +1,8 @@
 const {Client, Intents, MessageEmbed, MessageAttachment} = require('discord.js');
 const cron = require('cron');
-const {wancr} = require('config.json');
-const {guildId, generalChannelId} = wancr;
 
+const guildId = process.env.GUILD_ID;
+const generalChannelId = process.env.GENERAL_CHANNEL_ID;
 const token = process.env.DISCORD_TOKEN;
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS]});
