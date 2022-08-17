@@ -5,8 +5,7 @@ const {clientId, token} = require('./config.json');
 
 const commands = [
     new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
-]
-    .map(command => command.toJSON());
+].map(command => command.toJSON());
 
 const rest = new REST({version: '9'}).setToken(token);
 
